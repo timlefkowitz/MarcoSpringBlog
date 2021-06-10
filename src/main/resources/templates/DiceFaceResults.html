@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Results</title>
+</head>
+<body>
+
+<th:block th:if="${number == diceFace}">
+    <p>The dice face was <span th:text="${diceFace}"></span>, and your number was <span th:text="${number}"></span>. YES!!! you WIN!</p>
+</th:block>
+
+
+<th:block th:if="${number != diceFace}">
+    <p>The dice face was <span th:text="${diceFace}"></span>, and your number was <span th:text="${number}"></span>. Sorry, Try again!</p>
+</th:block>
+
+</body>
+</html>
