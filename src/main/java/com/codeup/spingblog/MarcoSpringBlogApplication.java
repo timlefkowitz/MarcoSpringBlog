@@ -1,4 +1,4 @@
-package com.codeup.MarcoSpringBlog;
+package com.codeup.spingblog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
