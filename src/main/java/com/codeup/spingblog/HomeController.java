@@ -19,7 +19,16 @@ public class HomeController {
 
     @GetMapping("/home")
     public String Welcome(){
+
+//        try{
+//            (
+//        }catch)
         return "home";
+    }
+
+    @GetMapping("/partials/navbar")
+    private String Navbar() {
+        return "navbar";
     }
 
 
