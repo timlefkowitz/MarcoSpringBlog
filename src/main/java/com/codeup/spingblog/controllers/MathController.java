@@ -1,4 +1,4 @@
-package com.codeup.spingblog;
+package com.codeup.spingblog.controllers;
 
 
 import org.springframework.stereotype.Controller;

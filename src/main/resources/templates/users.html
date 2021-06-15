@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head th:replace="/fragments/head :: head">
+    <title>Users</title>
+</head>
+<body>
+<nav th:replace="/fragments/navbar :: bootstrap_navbar"></nav>
+<main>
+    <h1>Here are all the users.</h1>
+    <div th:each="user : ${users}">
+        <p th:text="${user.fullName}" />
+    </div>
+</main>
+
+<footer th:replace="/fragments/footer :: footer"></footer>
+</body>
+</html>

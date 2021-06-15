@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="/fragments/head :: head">
     <meta charset="UTF-8">
     <title>Spring AdLister</title>
 </head>
 <body>
-
+<nav th:replace="/fragments/navbar :: bootstrap_navbar"></nav>
 
 <h2>All Ads example:</h2>
-<div th:each="ad : ${ads}">
-    <h3 th:text="${ad.title}"></h3>
-    <p th:text="${ad.description}" />
-</div>
+    <div th:each="ad : ${ads}">
+        <h3 th:text="${ad.title}"></h3>
+        <p th:text="${ad.description}" />
+    </div>
+
+<h4>A single ad:</h4>
+
+    <div>
+        <h4>Check out the communities top voted ad:</h4>
+        <h4 th:text="${topAd.title}"></h4>
+        <p th:text="${topAd.description}"></p>
+    </div>
+
+<h4>
+    A Search result:
+</h4>
+    <div>
+        <h3>You searched for 'childcare', and here are our results:</h3>
+        <h3 th:text="${searchAd.title}"></h3>
+        <p th:text="${searchAd.descriptaion}"></p>
+    </div>
 
 </body>
 </html>
