@@ -76,7 +76,7 @@ public class Ad {
         this.images = images;
     }
 
-    public User getOwner() {
+    public static User getOwner() {
         return owner;
     }
 

@@ -1,9 +1,10 @@
 package com.codeup.spingblog.controllers;
 
 
-import com.codeup.spingblog.daos.AdRepository;
+import com.codeup.spingblog.daos.*;
 import com.codeup.spingblog.models.Ad;
-import org.apache.catalina.User;
+import com.codeup.spingblog.models.User;
+import com.codeup.spingblog.services.StringService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +13,15 @@ import java.util.List;
 
 @Controller
 public class AdController {
+    private final StringService stringService;
     private final AdRepository adsDao;
     private final UsersRepository usersDao;
 
-    public AdController(AdRepository adDao){
+
+    public AdController(AdRepository adDao, UsersRepository usersDao){
         this.adsDao = adDao;
-        this.usersDao = UsersRepository;
+        this.usersDao = usersDao;
+        this.stringService = stringService;
     }
 
     @GetMapping("/ads")
@@ -27,6 +31,8 @@ public class AdController {
         model.addAttribute("noAdsFound", adsList.size() == 0);
         model.addAttribute("topAd", adsDao.findByTitle("bicycle north side"));
         model.addAttribute("searchAd", adsDao.findByTitleLike("%childcare%"));
+        String shortUserName = stringService.shortenString(Ad.getOwner().getUserName());
+        model.addAttribute("shortUserName", shortUserName);
         return "ads/index";
     }
 
@@ -48,15 +54,20 @@ public class AdController {
         User user = usersDao.getById(1l);
         Ad newAd = new Ad(title, description, user, null);
         Ad savedAd = adsDao.save(newAd);
+
+
+//        emailService.sendEmail(user.getEmail());
         return "redirect:/ads/" + savedAd.getId();
     }
 
+    // doubled up methods
 
-    public String show(@PathVariable long id, Model model){
-        model.addAttribute("adId", id);
-        model.addAttribute("ad", adsDao.getById(id));
-        return "ads/show";
-    }
+//    @GetMapping("/ads/show")
+//    public String show(@PathVariable long id, Model model){
+//        model.addAttribute("adId", id);
+//        model.addAttribute("ad", adsDao.getById(id));
+//        return "ads/show";
+//    }
 
 
     @GetMapping("/ads/{id}/edit")
@@ -96,14 +107,3 @@ public class AdController {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-}
