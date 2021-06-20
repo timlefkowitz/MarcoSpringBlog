@@ -1,4 +1,4 @@
-package com.codeup.spingblog.models;
+package com.codeup.springblog.models;
 
 
 import javax.persistence.*;
@@ -21,6 +21,7 @@ public class Ad {
 
     @OneToOne
     private User owner;
+
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ad")
@@ -76,7 +77,7 @@ public class Ad {
         this.images = images;
     }
 
-    public static User getOwner() {
+    public User getOwner() {
         return owner;
     }
 

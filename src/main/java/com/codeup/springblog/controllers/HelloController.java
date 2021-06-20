@@ -1,4 +1,4 @@
-package com.codeup.spingblog.controllers;
+package com.codeup.springblog.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,6 +35,11 @@ public class HelloController {
     public String joinCohort(@RequestParam(name = "cohort") String cohort, Model model) {
         model.addAttribute("cohort", "Welcome to " + cohort + "!");
         return "join";
+    }
+
+    @GetMapping("/")
+    public String landing(){
+        return"index";
     }
 
 

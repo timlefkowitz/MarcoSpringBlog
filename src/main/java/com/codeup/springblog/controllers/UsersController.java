@@ -1,4 +1,4 @@
-package com.codeup.spingblog.controllers;
+package com.codeup.springblog.controllers;
 
 import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;

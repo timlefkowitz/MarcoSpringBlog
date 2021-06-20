@@ -1,4 +1,4 @@
-package com.codeup.spingblog.models;
+package com.codeup.springblog.models;
 
 import javax.persistence.*;
 
@@ -50,6 +50,9 @@ public class User {
 
     @Column(nullable = false, length = 250)
     private String password;
+
+    public User(User user) {
+    }
 
 
     public long getId() {

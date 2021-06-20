@@ -1,11 +1,10 @@
-package com.codeup.spingblog.models;
-
+package com.codeup.springblog.models;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ad_images")
-public class AdImage {
+@Table(name = "post_images")
+public class PostImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -17,26 +16,23 @@ public class AdImage {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "ad_id")
-    private Ad ad;
+    @JoinColumn(name = "post_id")
+    private Post post;
 
-    public AdImage() {}
-
-
-    //insert
-    public AdImage(String path, String description, Ad ad) {
-        this.path = path;
-        this.description = description;
-        this.ad = ad;
+    public PostImage() {
     }
 
-    //update
+    public PostImage(String path, String description, Post post) {
+        this.path = path;
+        this.description = description;
+        this.post = post;
+    }
 
-    public AdImage(long id, String path, String description, Ad ad) {
+    public PostImage(long id, String path, String description, Post post) {
         this.id = id;
         this.path = path;
         this.description = description;
-        this.ad = ad;
+        this.post = post;
     }
 
     public long getId() {
@@ -63,11 +59,11 @@ public class AdImage {
         this.description = description;
     }
 
-    public Ad getAd() {
-        return ad;
+    public Post getPost() {
+        return post;
     }
 
-    public void setAd(Ad ad) {
-        this.ad = ad;
+    public void setPost(Post post) {
+        this.post = post;
     }
 }

@@ -1,4 +1,4 @@
-package com.codeup.spingblog.services;
+package com.codeup.springblog.services;
 
 public class StringService {
 

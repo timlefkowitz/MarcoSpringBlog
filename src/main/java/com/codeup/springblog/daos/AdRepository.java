@@ -1,6 +1,6 @@
-package com.codeup.spingblog.daos;
+package com.codeup.springblog.daos;
 
-import com.codeup.spingblog.models.Ad;
+import com.codeup.springblog.models.Ad;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
