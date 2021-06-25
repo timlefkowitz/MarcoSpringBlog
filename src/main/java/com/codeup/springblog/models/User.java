@@ -20,6 +20,13 @@ public class User {
         this.password = password;
     }
 
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        userName = copy.userName;
+        password = copy.password;
+    }
+
 
     //Update constructor
 
@@ -51,8 +58,7 @@ public class User {
     @Column(nullable = false, length = 250)
     private String password;
 
-    public User(User user) {
-    }
+
 
 
     public long getId() {

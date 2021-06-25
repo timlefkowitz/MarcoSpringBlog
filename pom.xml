@@ -63,7 +63,16 @@
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
             <version>3.0.4.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>2.1.2.RELEASE</version>
+        </dependency>
     </dependencies>
+    <mailSession description="" from="" host="127.0.0.1" jndiName="" mailSessionID="" transportProtocol="smtp" user="youremail@domain.com" password="yourpassword">
+        <property name="mail.smtp.auth" value="true"/>
+        <property name="mail.smtp.port" value="25"/>
+    </mailSession>
 
     <build>
         <plugins>
